@@ -11,9 +11,9 @@ public:
 	
 	contact( void );
 	~contact();
-	void	printContact( void ) const;
-	void	searchPrint( void ) const;	
-	void	setContact( const phonebook *pb );
+	void			setContact( const phonebook *pb );
+	void			printContact( void ) const;
+	void			searchPrint( void ) const;
 private:
 	int				_id;
 	std::string		_firstName;
@@ -22,6 +22,8 @@ private:
 	std::string		_phoneNumber;
 	std::string		_secret;
 	int				_full;
+
+	std::string		ft_truncate( const std::string line, size_t width) const;
 
 };
 

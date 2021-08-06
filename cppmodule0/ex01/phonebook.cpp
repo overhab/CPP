@@ -24,6 +24,7 @@ void	phonebook::displayContact( void ) const
 {
 	int		ind = 0;
 
+	std::cout << std::setiosflags( std::ios::right );
 	std::cout << std::setw(10) << "index" << "|" << std::setw(10) << "first name" << "|" << std::setw(10)
 		<< "last name" << "|" << std::setw(10) << "nickname" << std::endl;
 	while (ind < 8)
@@ -31,6 +32,7 @@ void	phonebook::displayContact( void ) const
 		contact[ind].searchPrint();
 		ind++;
 	}
+	std::cout << std::resetiosflags( std::ios::right );
 }
 
 void	phonebook::searchContact( void ) const
@@ -43,11 +45,11 @@ void	phonebook::searchContact( void ) const
 	std::cin >> input;
 	for (int d = 0; d < input.size(); d++)
 		if (!isdigit(input[d]))
+		{
+			std::cout << "Error: wrong index format!" << std::endl;
 			return ;
+		}
 	std::stringstream(input) >> index;
 	if (index >= 0 && index < 7)
-	{
-		std::cout << "Searching..." << std::endl;
 		contact[index].printContact();
-	}
 }
