@@ -43,7 +43,7 @@ void	phonebook::searchContact( void ) const
 	this->displayContact();
 	std::cout << "Enter contact index: ";
 	std::cin >> input;
-	for (int d = 0; d < input.size(); d++)
+	for (size_t d = 0; d < input.size(); d++)
 		if (!isdigit(input[d]))
 		{
 			std::cout << "Error: wrong index format!" << std::endl;

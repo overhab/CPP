@@ -1,22 +1,25 @@
-NAME		=	megaphone
+NAME		=	test
 OBJS_DIR	=	./objs
 SRCS_DIR	=	.
 
-SRC_FILES	=	megaphone.cpp
+HEADERS		=	Account.hpp	\
+
+SRC_FILES	=	tests.cpp	\
+				Account.cpp
 
 SRCS = $(addprefix $(SRCS_DIR)/, $(SRC_FILES))
 OBJS = $(patsubst $(SRCS_DIR)/%.cpp,$(OBJS_DIR)/%.o, $(SRCS))
 DEPS = $(OBJS:.o=.d)
 
 CXXFLAGS		= -Wall -Wextra -Werror
-CXXFLAGS_H	= -MMD -MP
-RM			= rm -f
-CXX			= clang++
+CXXFLAGS_H		= -MMD -MP
+RM				= rm -f
+CXX				= clang++
 
 all:		$(NAME)
 
 -include $(DEPS)
-$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.cpp | $(OBJS_DIR)
+$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.cpp $(HEADERS) | $(OBJS_DIR)
 	${CXX} $(CXXFLAGS) $(CXXFLAGS_H) -c $< -o $@
 
 $(OBJS_DIR):
