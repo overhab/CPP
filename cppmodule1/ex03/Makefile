@@ -1,10 +1,16 @@
-NAME		=	brain
+NAME		=	violence
 OBJS_DIR	=	./objs
 SRCS_DIR	=	.
 
-HEADERS		=	
+HEADERS		=	Weapon.hpp		\
+				HumanA.hpp		\
+				HumanB.cpp
 
 SRC_FILES	=	main.cpp		\
+				Weapon.cpp		\
+				HumanA.cpp		\
+				HumanB.cpp
+
 
 SRCS = $(addprefix $(SRCS_DIR)/, $(SRC_FILES))
 OBJS = $(patsubst $(SRCS_DIR)/%.cpp,$(OBJS_DIR)/%.o, $(SRCS))
