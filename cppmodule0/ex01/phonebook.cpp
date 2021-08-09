@@ -52,4 +52,6 @@ void	phonebook::searchContact( void ) const
 	std::stringstream(input) >> index;
 	if (index >= 0 && index < 7)
 		contact[index].printContact();
+	else
+		std::cout << "Wrong index" << std::endl;
 }
