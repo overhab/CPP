@@ -23,7 +23,7 @@ private:
 	std::string		_secret;
 	int				_full;
 
-	std::string		ft_truncate( const std::string line, size_t width) const;
+	std::string		ft_truncate( const std::string &line, size_t width) const;
 
 };
 

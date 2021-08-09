@@ -19,7 +19,7 @@ void	contact::setContact( const phonebook *pb )
 	this->_full = 1;
 }
 
-std::string		contact::ft_truncate( const std::string line, size_t width) const
+std::string		contact::ft_truncate( const std::string	&line, size_t width) const
 {
 	if (line.length() > width)
 		return (line.substr(0, 9) + ".");

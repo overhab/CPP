@@ -5,7 +5,7 @@ int		main( void )
 	std::string input;
 	phonebook	pb;
 
-	std::cout << "Enter command: (ADD, SEARCH or EXIT) " << std::endl;
+	std::cout << "Enter a command (ADD, SEARCH or EXIT): " << std::endl;
 	while (1)
 	{
 		std::getline(std::cin, input);
