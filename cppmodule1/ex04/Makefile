@@ -1,4 +1,4 @@
-NAME		=	brain
+NAME		=	replace
 OBJS_DIR	=	./objs
 SRCS_DIR	=	.
 

@@ -16,7 +16,7 @@ SRCS = $(addprefix $(SRCS_DIR)/, $(SRC_FILES))
 OBJS = $(patsubst $(SRCS_DIR)/%.cpp,$(OBJS_DIR)/%.o, $(SRCS))
 DEPS = $(OBJS:.o=.d)
 
-CXXFLAGS		= -Wall -Wextra -Werror
+CXXFLAGS		= -Wall -Wextra -Werror -std=c++98
 CXXFLAGS_H		= -MMD -MP
 RM				= rm -f
 CXX				= clang++
