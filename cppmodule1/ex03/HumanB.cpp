@@ -2,7 +2,7 @@
 
 HumanB::HumanB( const std::string& name ) : _name(name)
 {
-	this->weaponB = nullptr;
+	weaponB = nullptr;
 }
 
 HumanB::~HumanB()

@@ -21,7 +21,7 @@ std::string	sed_is_for_losers( const std::string& line, const std::string& s1, c
 	return (output);
 }
 
-int			main ( int ac, char **av )
+int			main( int ac, char **av )
 {
 	if (ac == 4)
 	{
@@ -36,11 +36,13 @@ int			main ( int ac, char **av )
 
 		if (ifile.fail())
 		{	
+			ofile.close();
 			std::cerr << "Can't open input file" << std::endl;
 			return (0);
 		}
 		if (ofile.fail())
 		{
+			ifile.close();
 			std::cerr << "Can't create output file" << std::endl;
 			return (0);	
 		}
