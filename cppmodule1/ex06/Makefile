@@ -1,10 +1,11 @@
-NAME		=	replace
+NAME		=	karenFilter
 OBJS_DIR	=	./objs
 SRCS_DIR	=	.
 
-HEADERS		=	
+HEADERS		=	Karen.hpp
 
 SRC_FILES	=	main.cpp		\
+				Karen.cpp
 
 SRCS = $(addprefix $(SRCS_DIR)/, $(SRC_FILES))
 OBJS = $(patsubst $(SRCS_DIR)/%.cpp,$(OBJS_DIR)/%.o, $(SRCS))
