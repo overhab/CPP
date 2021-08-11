@@ -28,7 +28,6 @@ int			main( int ac, char **av )
 		std::ifstream	ifile(av[1]);
 		std::string		name(av[1]);
 		name += ".replace";
-		std::ofstream	ofile(name.c_str());
 		std::string		s1(av[2]);
 		std::string		s2(av[3]);
 		std::string		read;
@@ -36,10 +35,10 @@ int			main( int ac, char **av )
 
 		if (ifile.fail())
 		{	
-			ofile.close();
 			std::cerr << "Can't open input file" << std::endl;
 			return (0);
 		}
+		std::ofstream	ofile(name.c_str());
 		if (ofile.fail())
 		{
 			ifile.close();
