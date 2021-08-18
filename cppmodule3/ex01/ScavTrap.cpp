@@ -40,6 +40,12 @@ ScavTrap& ScavTrap::operator=( const ScavTrap& ref )
 	return (*this);
 }
 
+void	ScavTrap::attack( std::string const & target )
+{
+	std::cout << this->_name << " inflicts\033[1;31m " << this->_attackDamage << " damage\033[0;0m to " 
+		<< target << "!" << std::endl;
+}
+
 void		ScavTrap::guardGate( void ) const
 {
 	std::cout << "\033[1;36mScavTrap \033[0;0m" << this->_name << " is now in \"Gate keeper\" mode"

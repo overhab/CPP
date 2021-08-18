@@ -16,6 +16,7 @@ public:
 	~ScavTrap( );
 
 	void		guardGate( void ) const;
+	void		attack( std::string const & target );
 	ScavTrap&	operator=( const ScavTrap& ref );
 };
 

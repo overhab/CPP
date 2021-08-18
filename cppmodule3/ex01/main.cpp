@@ -26,6 +26,7 @@ int		main ( void )
 	ScavTrap	third(temp);
 
 	third.beRepaired(65);
+	third.attack("Unknown entity");
 	third.takeDamage(34);
 	third.beRepaired(27);
 	third.guardGate();
