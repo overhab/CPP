@@ -2,7 +2,6 @@
 
 ScavTrap::ScavTrap( void ) : ClapTrap()
 {
-	_name = "default";
 	_hitPoints = 100;
 	_energyPoings = 50;
 	_attackDamage = 20;
@@ -17,7 +16,6 @@ ScavTrap::ScavTrap( const ScavTrap& copy ) : ClapTrap(copy)
 ScavTrap::ScavTrap( const std::string& name ) 
 	: ClapTrap( name )
 {
-	_name = name;
 	_hitPoints = 100;
 	_energyPoings = 50;
 	_attackDamage = 20;

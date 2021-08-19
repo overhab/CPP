@@ -1,10 +1,14 @@
 #include "ScavTrap.hpp"
 
+int		ScavTrap::_ap = 20;
+int		ScavTrap::_hp = 100;
+int		ScavTrap::_ep = 50;
+
 ScavTrap::ScavTrap( void ) : ClapTrap()
 {
-	_hitPoints = 100;
-	_energyPoings = 50;
-	_attackDamage = 20;
+	_hitPoints = ScavTrap::_hp;
+	_energyPoings = ScavTrap::_ap;
+	_attackDamage = ScavTrap::_ep;
 	std::cout << "Default \033[1;36mScavTrap\033[0;0m constructor called..." << std::endl;
 }
 
@@ -16,9 +20,9 @@ ScavTrap::ScavTrap( const ScavTrap& copy ) : ClapTrap(copy)
 ScavTrap::ScavTrap( const std::string& name ) 
 	: ClapTrap( name )
 {
-	_hitPoints = 100;
-	_energyPoings = 50;
-	_attackDamage = 20;
+	_hitPoints = ScavTrap::_hp;
+	_energyPoings = ScavTrap::_ap;
+	_attackDamage = ScavTrap::_ep;
 	std::cout << _name << " (\033[1;36mScavTrap\033[0;0m) is here to save the day!" << std::endl;
 }
 
@@ -46,6 +50,6 @@ void	ScavTrap::attack( std::string const & target )
 
 void		ScavTrap::guardGate( void ) const
 {
-	std::cout << "\033[1;36mScavTrap \033[0;0m" << this->_name << " is now in \"Gate keeper\" mode"
+	std::cout << this->_name << " is now in \"Gate keeper\" mode"
 		<< std::endl;
 }

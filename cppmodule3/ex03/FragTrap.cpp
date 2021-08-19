@@ -1,10 +1,14 @@
 #include "FragTrap.hpp"
 
+int		FragTrap::_ap = 30;
+int		FragTrap::_hp = 100;
+int		FragTrap::_ep = 100;
+
 FragTrap::FragTrap( void ) : ClapTrap()
 {
-	_hitPoints = 100;
-	_energyPoings = 100;
-	_attackDamage = 30;
+	_hitPoints = FragTrap::_hp;
+	_energyPoings = FragTrap::_ep;
+	_attackDamage = FragTrap::_ap;
 	std::cout << "Default \033[0;33mFragTrap\033[0;0m constructor called..." << std::endl;
 }
 
@@ -16,9 +20,9 @@ FragTrap::FragTrap( const FragTrap& copy ) : ClapTrap(copy)
 FragTrap::FragTrap( const std::string& name ) 
 	: ClapTrap( name )
 {
-	_hitPoints = 100;
-	_energyPoings = 100;
-	_attackDamage = 30;
+	_hitPoints = FragTrap::_hp;
+	_energyPoings = FragTrap::_ep;
+	_attackDamage = FragTrap::_ap;
 	std::cout << _name << " (\033[0;33mFragTrap\033[0;0m) arrived for the party." << std::endl;
 }
 
@@ -46,6 +50,6 @@ void	FragTrap::attack( std::string const & target )
 
 void	FragTrap::highFivesGuys(void) const
 {
-	std::cout << "\033[0;33mFragTrap \033[0;0m" << this->_name << " says \"Good job, guys!\" " \
+	std::cout <<	 this->_name << " says \"Good job, guys!\" " \
 	"as he raises his hand up for the high five." << std::endl;
 }
