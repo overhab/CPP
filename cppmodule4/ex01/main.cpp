@@ -36,6 +36,33 @@ int		main ( void )
 	std::cout << "copy 2:\t\t" << (dynamic_cast<const Dog*>(copy))->myBrain()->getIdea(0) << std::endl;
 	std::cout << "original:\t" << (dynamic_cast<const Dog*>(dog))->myBrain()->getIdea(0) << std::endl;
 
+	std::cout << "---------------------------" << std::endl;
+	std::cout << "     Assignment Test" << std::endl;
+	std::cout << "---------------------------" << std::endl;
+	Animal *cat = new Cat();
+	std::cout << cat->getType() << std::endl;
+	cat->makeSound();
+	(dynamic_cast<const Cat*>(cat))->myBrain()->setIdea("KEKW");
+	std::cout << (dynamic_cast<const Cat*>(cat))->myBrain()->getIdea(0) << std::endl;
+	std::cout << (dynamic_cast<const Cat*>(cat))->myBrain()->getIdea(1) << std::endl;
+
+	std::cout << "---------------------------" << std::endl;
+	Animal *tac = new Cat();
+	std::cout << tac->getType() << std::endl;
+	tac->makeSound();
+	(dynamic_cast<const Cat*>(tac))->myBrain()->setIdea("PogChamp");
+	std::cout << "tac: " << (dynamic_cast<const Cat*>(tac))->myBrain()->getIdea(0) << std::endl;
+	dynamic_cast<Cat&>(*cat) = dynamic_cast<Cat&>(*tac);
+	std::cout << (dynamic_cast<const Cat*>(cat))->myBrain()->getIdea(0) << std::endl;
+	(dynamic_cast<const Cat*>(tac))->myBrain()->setIdea("Kappa");
+	std::cout << "cat: " << (dynamic_cast<const Cat*>(cat))->myBrain()->getIdea(1) << std::endl;
+	std::cout << "tac: "<< (dynamic_cast<const Cat*>(tac))->myBrain()->getIdea(1) << std::endl;
+
+	delete cat;
+	delete tac;
+
+	std::cout << "---------------------------" << std::endl;
+
 	delete dog;
 	delete copy;
 

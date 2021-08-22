@@ -11,8 +11,10 @@ Brain::Brain( void )
 
 Brain::Brain( const Brain& copy )
 {
-	for (int i = 0; i < I_SIZE; i++)
-		_ideas[i] = copy._ideas[i];
+	if (_ideas)
+		delete [] _ideas;
+	_ideas = new std::string[I_SIZE];
+	this->copyData(copy);
 	std::cout << "[ Copy "PURPLE"Brain "RESET"constructor called ]" << std::endl;
 }
 
@@ -24,7 +26,7 @@ Brain::~Brain( void )
 
 Brain&			Brain::operator=( const Brain& ref )
 {
-	this->_ideas[0] = ref._ideas[0];
+	this->_ideas = ref._ideas;
 	return (*this);
 }
 

@@ -11,6 +11,8 @@
 # define BOLD    "\033[;1m"
 # define REVERSE "\033[;7m"
 
+# define SIZE 2
+
 # include "AAnimal.hpp"
 # include "Dog.hpp"
 # include "Cat.hpp"

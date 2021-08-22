@@ -10,8 +10,7 @@ Dog::Dog( void )
 Dog::Dog( const Dog& copy )
 {
 	_type = copy._type;
-	_brain = new Brain();
-	_brain->copyData(*copy._brain);
+	_brain = new Brain(*copy._brain);
 	std::cout << "[ Copy "YELLOW"Dog "RESET"constructor called ]" << std::endl;
 }
 
@@ -24,6 +23,9 @@ Dog::~Dog( void )
 Dog& Dog::operator=( const Dog& ref )
 {
 	this->_type = ref._type;
+	if (this->_brain)
+		delete this->_brain;
+	this->_brain = new Brain(*ref._brain);
 	return (*this);
 }
 

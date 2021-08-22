@@ -17,6 +17,7 @@ public:
 	void	makeSound( void ) const;
 	Cat& 	operator=( const Cat& ref );
 	Brain*	myBrain( void ) const;
+	void	setType( const std::string& type );
 };
 
 #endif
