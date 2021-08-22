@@ -1,17 +1,24 @@
-NAME		=	animal
+NAME		=	interface
 OBJS_DIR	=	./objs
 SRCS_DIR	=	.
 
-HEADERS		=	Animal.hpp		\
-				Dog.hpp			\
-				Cat.hpp			\
-				Brain.hpp		
+HEADERS		=	main.hpp			\
+				AMateria.hpp		\
+				Character.hpp		\
+				Cure.hpp			\
+				ICharacter.hpp		\
+				Ice.hpp				\
+				IMateriaSource.hpp	\
+				MateriaSource.hpp	
 
-SRC_FILES	=	main.cpp		\
-				Animal.cpp		\
-				Dog.cpp			\
-				Cat.cpp			\
-				Brain.cpp		
+SRC_FILES	=	main.cpp			\
+				AMateria.cpp		\
+				Character.cpp		\
+				Cure.cpp			\
+				Ice.cpp				\
+				MateriaSource.cpp	
+		
+	
 
 SRCS = $(addprefix $(SRCS_DIR)/, $(SRC_FILES))
 OBJS = $(patsubst $(SRCS_DIR)/%.cpp,$(OBJS_DIR)/%.o, $(SRCS))
