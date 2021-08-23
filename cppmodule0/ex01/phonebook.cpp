@@ -43,12 +43,11 @@ void	phonebook::searchContact( void ) const
 	this->displayContact();
 	std::cout << "Enter contact index: ";
 	std::cin >> input;
-	for (size_t d = 0; d < input.size(); d++)
-		if (!isdigit(input[d]))
-		{
-			std::cout << "Error: wrong index format!" << std::endl;
-			return ;
-		}
+	if (!(input.find_first_not_of("0123456789") == std::string::npos))
+	{
+		std::cout << "Error: wrong index format!" << std::endl;			
+		return ;
+	}
 	std::stringstream(input) >> index;
 	if (index >= 0 && index < 7)
 		contact[index].printContact();

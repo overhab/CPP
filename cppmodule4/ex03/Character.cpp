@@ -2,21 +2,18 @@
 
 Character::Character( void ) : _name("default")
 {
-	//_mat = new AMateria *[NUM_MAT];
 	for (int i = 0; i < NUM_MAT; i++)
 		_mat[i] = NULL;
 }
 
 Character::Character( const std::string& name ) : _name(name)
 {
-	//_mat = new AMateria *[NUM_MAT];
 	for (int i = 0; i < NUM_MAT; i++)
 		_mat[i] = NULL;
 }
 
 Character::Character( const Character& copy ) : _name(copy._name)
 {
-	//_mat = new AMateria *[NUM_MAT];
 	for (int i = 0; i < NUM_MAT; i++)
 		_mat[i] = copy._mat[i];
 }
@@ -25,14 +22,13 @@ Character::~Character( void )
 {
 	for (int i = 0; i < NUM_MAT; i++)
 		delete _mat[i];
-	//delete [] _mat;
 }
 
 Character& Character::operator=( const Character& ref )
 {
 	this->_name = ref._name;
-	//delete [] _mat;
-	//this->_mat = new AMateria *[NUM_MAT];
+	for (int i = 0; i < NUM_MAT; i++)
+		delete _mat[i];
 	for (int i = 0; i < NUM_MAT; i++)
 		this->_mat[i] = ref._mat[i];
 	return (*this);
