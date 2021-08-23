@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <string>
+class Form;
 
 class Bureaucrat
 {
@@ -35,6 +36,7 @@ public:
 	std::string		getName(void) const;
 	unsigned int	getGrade(void) const;
 
+	void			signForm(Form& form) const;
 	void			incGrade(void);
 	void			deGrade(void);
 	Bureaucrat&		operator=( const Bureaucrat& ref );
