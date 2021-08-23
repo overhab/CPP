@@ -30,6 +30,7 @@ int		main ( void )
 
 	try {
 	//form_3.beSigned(bureau1);
+	bureau1.signForm(form_3);
 	std::cout << "-------------------------------" << std::endl;
 	std::cout << form_1 << std::endl;
 	form_1.beSigned(bureau1);
@@ -42,11 +43,12 @@ int		main ( void )
 	bureau3.signForm(form_3);
 	std::cout << form_2 << std::endl;
 	std::cout << form_3 << std::endl;
+	bureau3.signForm(form_3);
 	std::cout << "-------------------------------" << std::endl;
 	}
 	catch(Form::GradeTooLowException& err)
 	{
-		std::cout << err.what() << std::endl;
+		std::cout << "Cannot be signed. " << err.what() << std::endl;
 		return (-1);
 	}
 

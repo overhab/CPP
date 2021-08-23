@@ -12,7 +12,7 @@ public:
 		public:
 			virtual const char* what() const throw()
 			{
-				return ("Error: Grade is too high!");
+				return ("Error: grade is too high!");
 			}
 	};
 	class GradeTooLowException : public std::exception
@@ -20,7 +20,15 @@ public:
 		public:
 			virtual const char* what() const throw()
 			{
-				return ("Error: Grade is too low!");
+				return ("Error: grade is too low!");
+			}
+	};
+	class AlreadySigned : public std::exception
+	{
+		public:
+			virtual const char* what() const throw()
+			{
+				return ("form is already signed.");
 			}
 	};
 private:

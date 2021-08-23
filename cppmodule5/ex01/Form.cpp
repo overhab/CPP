@@ -63,8 +63,7 @@ bool			Form::beSigned(const Bureaucrat& bureau)
 {
 	if (this->_isSigned)
 	{
-		std::cout << "Form: " << this->getName() << " is signed.";
-		return false;
+		throw(Form::AlreadySigned());
 	}
 	if (bureau.getGrade() <= this->getSignGrade())
 	{
