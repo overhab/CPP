@@ -4,7 +4,6 @@
 # include <iostream>
 # include <string>
 # include <sstream>
-# include <algorithm>
 # include <ctype.h>
 # include <iomanip>
 # include <limits.h>

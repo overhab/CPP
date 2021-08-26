@@ -108,11 +108,24 @@ Convert::operator	char() const
 	return (ret);
 }
 
+size_t			Convert::countChar(const std::string &str, char c)
+{
+	std::string::const_iterator i;
+	size_t count = 0;
+
+	for (i = str.begin(); i != str.end(); i++)
+	{
+		if (*i == c)
+			count++;
+	}
+	return count;
+}
+
 bool			Convert::isFloat( void )
 {
 	std::string tmp = this->getInput();
-	size_t d = std::count(tmp.begin(), tmp.end(), '.');
-	size_t f = std::count(tmp.begin(), tmp.end(), 'f');
+	size_t d = this->countChar(tmp, '.');
+	size_t f = this->countChar(tmp, 'f');
 	if (d == 1 && f == 0)
 	{
 		this->setType(DOUBLE);
@@ -123,11 +136,11 @@ bool			Convert::isFloat( void )
 	return true;
 }
 
-bool			Convert::checkMinus( void ) const
+bool			Convert::checkMinus( void )
 {
 	std::string tmp = this->getInput();
 
-	size_t d = std::count(tmp.begin(), tmp.end(), '-');
+	size_t d = this->countChar(tmp, '-');
 	if ((d > 1) || (d == 1 && (tmp.c_str())[0] != '-'))
 		return false;
 	return true;

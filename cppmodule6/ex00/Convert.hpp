@@ -2,6 +2,7 @@
 # define CONVERT_HPP
 
 # include <iostream>
+# include <string>
 # include "main.hpp"
 
 class Convert
@@ -29,9 +30,10 @@ public:
 
 	bool			isFloat( void );
 	bool			isDigit( void );
-	bool			checkMinus( void ) const;
+	bool			checkMinus( void );
 	bool			checkInput( void );
 	int				displayInf( void ) const;
+	size_t			countChar(const std::string &str, char c);
 
 	explicit operator	float() const;
 	explicit operator	int() const;
