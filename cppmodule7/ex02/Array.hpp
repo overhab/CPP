@@ -23,10 +23,10 @@ private:
 public:
 	Array( void ) : _size(0), _array(NULL) {};
 
-	Array( const Array& copy ) : _size(copy.size()) {
+	Array( const Array<T>& copy ) : _size(copy.size()) {
 		this->_array = new T[size()]();
 		for (std::size_t i = 0; i < size(); i++)
-			_array[i] = copy.getElement(i);
+			_array[i] = copy[i];
 	};
 
 	Array( unsigned int n ) :_size(n), _array(new T[size()]()) {};
@@ -39,15 +39,17 @@ public:
 		return this->_size;
 	}
 
-	Array& operator=( const Array& ref ){
+	Array<T>& operator=( const Array<T>& ref ){
 		this->_size = ref.size();
+		if (this->_array)
+			delete [] this->_array;
 		this->_array = new T[size()]();
 		for (std::size_t i = 0; i < size(); i++)
 			_array[i] = ref[i];
 		return (*this);
 	};
 
-	T& operator[]( unsigned int index ){
+	T& operator[]( unsigned int index ) const {
 		if (index < size())
 			return (this->_array[index]);
 		throw Array::IndexOutOfRange();

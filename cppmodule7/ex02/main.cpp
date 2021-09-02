@@ -14,6 +14,11 @@ int		main( void )
 	str[2] = "Hello";
 	std::cout <<"["<<  str[2]<< "]" << std::endl;
 
+	Array<int> tmp(12);
+
+	tmp = poop;
+	std::cout << tmp[2] << std::endl;
+	
 	try { 
 		str[14] = "oops";
 	}
@@ -22,7 +27,7 @@ int		main( void )
 		return 0;
 	}
 
-	
+
 	std::cout << "fin." << std::endl;
 
 	return (0);
