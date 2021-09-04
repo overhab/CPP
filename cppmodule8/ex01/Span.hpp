@@ -32,17 +32,34 @@ public:
 	Span( unsigned int n );
 	~Span( );
 
-	std::size_t			getSize( void ) const;
 	void				fillRandom( void );
 	std::vector<int>&	getArray( void );
+	std::size_t			getSize( void ) const;
 	void				addNumber( int num );
 	int					shortestSpan( void );
 	int					longestSpan( void );
-	void				calculateSpan( void );
+	int					calculateSpan( void );
 
 	void				printArray( void ) const;
 
 	Span& 				operator=( const Span& ref );
+
+	class NoElementsException : public std::exception
+	{
+		public:
+			virtual const char* what() const throw()
+			{
+				return ("Error: there is only one (or none) numbers stored!");
+			}
+	};
+	class ArrayIsFullException : public std::exception
+	{
+		public:
+			virtual const char* what() const throw()
+			{
+				return ("Error: cannot add more, array is full!");
+			}
+	};
 };
 
 #endif
