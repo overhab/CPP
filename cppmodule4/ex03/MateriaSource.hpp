@@ -12,7 +12,7 @@ private:
 public:
 	MateriaSource( void );
 	MateriaSource( const MateriaSource& copy );
-	~MateriaSource( );
+	virtual ~MateriaSource( );
 
 	MateriaSource&	operator=( const MateriaSource& ref );
 

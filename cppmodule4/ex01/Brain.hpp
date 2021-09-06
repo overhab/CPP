@@ -14,7 +14,7 @@ private:
 public:
 	Brain( void );
 	Brain( const Brain& copy );
-	~Brain( );
+	virtual ~Brain( );
 
 	void			copyData( const Brain& copy );
 	void			setIdea( const std::string& idea );

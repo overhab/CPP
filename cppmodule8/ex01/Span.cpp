@@ -3,7 +3,7 @@
 int		Span::_status;
 
 Span::Span( const Span& copy ) 
-	: _N(copy._N), _array(copy._array), _begin(_array.begin()), _end(_array.end())
+	: _N(copy._N), _array(copy._array)
 {
 	Span::_status = 1;
 }
@@ -20,33 +20,29 @@ Span::~Span( void )
 
 void				Span::addNumber( int num )
 {
-	if (this->getArray().size() == this->getArray().capacity()){
+	if (this->_array.size() == this->_array.capacity()){
 		throw Span::ArrayIsFullException();
 		return ;
 	}
-	this->getArray().push_back(num);
-	_begin = _array.begin();
-	_end = _array.end();
+	this->_array.push_back(num);
 }
 
-std::vector<int>&	Span::getArray( void )
+const std::vector<int>&		Span::getArray( void ) const
 {
 	return this->_array;
 }
 
 void				Span::fillRandom( void )
 {
-	this->getArray().assign(this->getArray().capacity(), 0);
-	std::generate(this->getArray().begin(), this->getArray().end(), Span::_RNG);
-	_begin = _array.begin();
-	_end = _array.end();
+	this->_array.assign(this->_array.capacity(), 0);
+	std::generate(this->_array.begin(), this->_array.end(), Span::_RNG);
 }
 
 int				Span::calculateSpan( void )
 {
 	if (!Span::_status)
 		return 1;
-	if (this->getArray().size() <= 1){
+	if (this->_array.size() <= 1){
 		return 0;
 	}
 	std::sort(_array.begin(), _array.end());
@@ -77,8 +73,6 @@ Span& 				Span::operator=( const Span& ref )
 {
 	this->_N = ref._N;
 	this->_array = ref._array;
-	this->_begin = this->_array.begin();
-	this->_end = this->_array.end();
 	Span::_status = 1;
 	return (*this);
 }
@@ -90,6 +84,6 @@ int					Span::_RNG( void )
 
 void				Span::printArray( void ) const
 {
-	std::copy(this->_begin, this->_end, std::ostream_iterator<int>(std::cout, " "));
+	std::copy(this->_array.begin(), this->_array.end(), std::ostream_iterator<int>(std::cout, " "));
 	std::cout << std::endl;
 }

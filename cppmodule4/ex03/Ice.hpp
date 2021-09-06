@@ -12,7 +12,7 @@ private:
 public:
 	Ice( void );
 	Ice( const Ice& copy );
-	~Ice( );
+	virtual ~Ice( );
 
 	AMateria*	clone() const;
 	void		use(ICharacter& target);

@@ -14,7 +14,7 @@ public:
 	Character( void );
 	Character( const std::string& name );
 	Character( const Character& copy );
-	~Character( );
+	virtual ~Character( );
 
 	void				equip(AMateria* m);
 	void				unequip(int idx);

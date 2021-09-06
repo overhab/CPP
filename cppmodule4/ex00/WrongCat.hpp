@@ -11,7 +11,7 @@ protected:
 public:
 	WrongCat( void );
 	WrongCat( const WrongCat& copy );
-	~WrongCat( );
+	virtual ~WrongCat( );
 
 	void	makeSound( void ) const;
 	WrongCat& operator=( const WrongCat& ref );

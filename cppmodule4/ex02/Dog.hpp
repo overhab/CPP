@@ -12,7 +12,7 @@ private:
 public:
 	Dog( void );
 	Dog( const Dog& copy );
-	~Dog( );
+	virtual ~Dog( );
 
 	void	makeSound( void ) const;
 	Dog& 	operator=( const Dog& ref );

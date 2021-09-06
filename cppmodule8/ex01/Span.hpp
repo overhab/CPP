@@ -5,22 +5,15 @@
 # include <algorithm>
 # include <iterator>
 # include <ctime>
-# include <map>
-# include <climits>
 # include <sstream>
-# include <numeric>
 # include <exception>
 # include <vector>
-# include <cstdlib>
-# include <functional>
 
 class Span
 {
 private:
 	unsigned int				_N;
 	std::vector<int>			_array;
-	std::vector<int>::iterator	_begin;
-	std::vector<int>::iterator	_end;
 	int							_short;
 	int							_long;
 	static int					_status;
@@ -32,17 +25,16 @@ public:
 	Span( unsigned int n );
 	~Span( );
 
-	void				fillRandom( void );
-	std::vector<int>&	getArray( void );
-	std::size_t			getSize( void ) const;
-	void				addNumber( int num );
-	int					shortestSpan( void );
-	int					longestSpan( void );
-	int					calculateSpan( void );
+	void						fillRandom( void );
+	const std::vector<int>&		getArray( void ) const;
+	void						addNumber( int num );
+	int							shortestSpan( void );
+	int							longestSpan( void );
+	int							calculateSpan( void );
 
-	void				printArray( void ) const;
+	void						printArray( void ) const;
 
-	Span& 				operator=( const Span& ref );
+	Span& 						operator=( const Span& ref );
 
 	class NoElementsException : public std::exception
 	{
