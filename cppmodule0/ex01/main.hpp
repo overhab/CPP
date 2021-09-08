@@ -6,7 +6,11 @@
 # include <sstream>
 # include <locale> 
 # include <string>
+# include <cstdlib>
 # include "contact.hpp"
 # include "phonebook.hpp"
+
+# include <limits>
+# include <climits>
 
 #endif

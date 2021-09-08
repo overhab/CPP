@@ -8,14 +8,19 @@ contact::~contact( void )
 {
 }
 
-void	contact::setContact( const phonebook *pb )
+void	contact::setContact( int id )
 {
-	this->_id = pb->id;
-	this->_firstName = pb->firstName;
-	this->_lastName = pb->lastName;
-	this->_nickname = pb->nickname;
-	this->_phoneNumber = pb->phoneNumber;
-	this->_secret = pb->secret;
+	this->_id = id;
+	std::cout << "Enter first name: ";
+	std::getline(std::cin, this->_firstName);
+	std::cout << "Enter last name: ";
+	std::getline(std::cin, this->_lastName);
+	std::cout << "Enter nickname: ";
+	std::getline(std::cin, this->_nickname);
+	std::cout << "Enter phone number: ";
+	std::getline(std::cin, this->_phoneNumber);
+	std::cout << "Enter darkest secret: ";
+	std::getline(std::cin, this->_secret);
 	this->_full = 1;
 }
 

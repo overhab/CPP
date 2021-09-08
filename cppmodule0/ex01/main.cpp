@@ -9,7 +9,11 @@ int		main( void )
 	while (1)
 	{
 		std::getline(std::cin, input);
-		if (!input.compare("EXIT"))
+		if (std::cin.eof()) {
+			std::cout << "\nexit" << std::endl;
+			return 0;
+		}
+		else if (!input.compare("EXIT"))
 			return (0);
 		else if (!input.compare("ADD"))
 			pb.addContact();

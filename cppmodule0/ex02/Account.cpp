@@ -2,6 +2,7 @@
 #include <iostream>
 #include <ctime>
 #include <iomanip>
+#include <time.h> 
 
 int	Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;
@@ -73,10 +74,17 @@ void	Account::displayStatus( void ) const
 
 void	Account::_displayTimestamp( void )
 {
-	auto	t = std::time(nullptr);
-	auto	tm = *std::localtime(&t);
-	
-	std::cout << "[" << std::put_time(&tm, "%Y%m%d_%H%M%S") << "] ";
+	time_t		rawtime;
+	struct tm	*timeinfo;
+	char		buffer[80];
+
+	time(&rawtime);
+	timeinfo = localtime(&rawtime);
+
+	std::strftime(buffer, 80, "[%Y%m%d_%H%M%S] ", timeinfo);
+	std::cout << buffer;
+
+	//std::cout << "[19920104_091532] "; // for diff test
 }
 
 void	Account::displayAccountsInfos( void )

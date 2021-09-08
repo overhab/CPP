@@ -11,7 +11,7 @@ public:
 	
 	contact( void );
 	~contact();
-	void			setContact( const phonebook *pb );
+	void			setContact( int id );
 	void			printContact( void ) const;
 	void			searchPrint( void ) const;
 private:

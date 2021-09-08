@@ -4,17 +4,7 @@ int		phonebook::id = 0;
 
 void	phonebook::addContact( void )
 {
-	std::cout << "Enter first name: ";
-	std::getline(std::cin, this->firstName);
-	std::cout << "Enter last name: ";
-	std::getline(std::cin, this->lastName);
-	std::cout << "Enter nickname: ";
-	std::getline(std::cin, this->nickname);
-	std::cout << "Enter phone number: ";
-	std::getline(std::cin, this->phoneNumber);
-	std::cout << "Enter darkest secret: ";
-	std::getline(std::cin, this->secret);
-	this->contact[phonebook::id].setContact( this );
+	this->contact[phonebook::id].setContact( phonebook::id );
 	phonebook::id++;
 	if (phonebook::id > 7)
 		phonebook::id = 0;
@@ -42,8 +32,11 @@ void	phonebook::searchContact( void ) const
 
 	this->displayContact();
 	std::cout << "Enter contact index: ";
-	std::cin >> input;
-	if (!(input.find_first_not_of("0123456789") == std::string::npos))
+	std::getline(std::cin, input);
+	if (std::cin.eof()) {
+		return ;
+	}
+	if (!(input.find_first_not_of("0123456789") == std::string::npos) || input.length() > 1)
 	{
 		std::cout << "Error: wrong index format!" << std::endl;			
 		return ;
@@ -53,4 +46,5 @@ void	phonebook::searchContact( void ) const
 		contact[index].printContact();
 	else
 		std::cout << "Wrong index" << std::endl;
+	return ;
 }

@@ -8,11 +8,6 @@ class phonebook
 public:
 	contact			contact[8];
 	static int		id;
-	std::string		firstName;
-	std::string		lastName;
-	std::string		nickname;
-	std::string		phoneNumber;
-	std::string		secret;
 
 	void	addContact( void );
 	void	searchContact( void ) const;
