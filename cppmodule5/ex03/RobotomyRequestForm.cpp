@@ -30,6 +30,8 @@ bool	RobotomyRequestForm::execute( Bureaucrat const & executor ) const
 	{
 		if (executor.getGrade() <= this->getExecGrade())
 		{
+			std::cout << executor.getName() << " executes " << this->getName()
+				<< std::endl;
 			std::srand(std::time(NULL));
 			if (std::rand() % 2)
 			{

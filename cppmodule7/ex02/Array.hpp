@@ -11,7 +11,6 @@ class Array
 public:
 	class IndexOutOfRange : public std::exception
 	{
-		public:
 			virtual const char* what() const throw()
 			{
 				return ("Error: index out of range");
@@ -47,15 +46,15 @@ public:
 		this->_size = ref.size();
 		if (this->_array)
 			delete [] this->_array;
-		this->_array = new T[size()]();
-		for (std::size_t i = 0; i < size(); i++)
+		this->_array = new T[this->size()]();
+		for (std::size_t i = 0; i < this->size(); i++)
 			_array[i] = ref[i];
 		return (*this);
 	};
 
 	T& operator[]( unsigned int index ) const 
 	{
-		if (index < size())
+		if (index < this->size())
 			return (this->_array[index]);
 		throw Array::IndexOutOfRange();
 	};

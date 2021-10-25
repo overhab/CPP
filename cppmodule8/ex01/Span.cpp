@@ -45,17 +45,19 @@ int				Span::calculateSpan( void )
 	if (this->_array.size() <= 1){
 		return 0;
 	}
-	std::sort(_array.begin(), _array.end());
-	this->_short = _array[1] - _array[0];
-	this->_long =  *std::max_element(_array.begin(), _array.end()) \
-		- *std::min_element(_array.begin(), _array.end());
+	std::sort(this->_array.begin(), this->_array.end());
+	std::vector<int> _result(this->_array.size());
+	std::adjacent_difference(this->_array.begin(), this->_array.end(), _result.begin());
+	this->_short = *std::min_element(_result.begin(), _result.end());
+	this->_long =  *std::max_element(this->_array.begin(), this->_array.end()) \
+		- *std::min_element(this->_array.begin(), this->_array.end());
 	Span::_status = 0;
 	return 1;
 }
 
 int					Span::shortestSpan( void )
 {
-	if	(calculateSpan())
+	if (calculateSpan())
 		return this->_short;
 	throw Span::NoElementsException();
 	return -1;
@@ -63,7 +65,7 @@ int					Span::shortestSpan( void )
 
 int					Span::longestSpan( void )
 {
-	if	(calculateSpan())
+	if (calculateSpan())
 		return this->_long;
 	throw Span::NoElementsException();
 	return -1;
@@ -79,7 +81,7 @@ Span& 				Span::operator=( const Span& ref )
 
 int					Span::_RNG( void )
 {
-	return (std::rand() % 100);
+	return (std::rand() % 1000000);
 }
 
 void				Span::printArray( void ) const

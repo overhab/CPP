@@ -12,7 +12,7 @@ private:
 public:
 	Cure( void );
 	Cure( const Cure& copy );
-	virtual ~Cure( );
+	~Cure( );
 
 	AMateria*	clone() const;
 	void		use(ICharacter& target);

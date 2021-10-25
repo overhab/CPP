@@ -13,13 +13,20 @@ Data*		deserialize(uintptr_t raw)
 int		main( void )
 {
 	Data		*data = new Data;
-	//uintptr_t	ptr;
+	uintptr_t	ptr;
+	Data		*deserialized;
 
-	data->data_string = "LOL CHE";
-	std::cout << "original data: " << data << "\nstring: " << data->data_string << std::endl;
-	//ptr = serialize(data);
-	//std::cout << "serialize ptr: " << ptr << std::endl;
-	std::cout << "deserialize data: " << deserialize(serialize(data)) << "\nstring: " << data->data_string << std::endl;
+	data->data_string = "Hello world! Test test.";
+	data->data_long = 10;
+
+	std::cout << "Original data: " << data << "\nstring: \"" << data->data_string << "\" long: "
+		<< data->data_long << std::endl;
+
+	ptr = serialize(data);
+	deserialized = deserialize(ptr);
+	
+	std::cout << "Deserialized data: " << deserialized << "\nstring: \"" << data->data_string
+	<< "\" long: " << data->data_long << std::endl;
 
 	delete data;
 

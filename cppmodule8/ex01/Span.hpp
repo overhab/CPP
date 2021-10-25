@@ -7,7 +7,9 @@
 # include <ctime>
 # include <sstream>
 # include <exception>
+# include <numeric>
 # include <vector>
+# include <set>
 
 class Span
 {
@@ -38,7 +40,6 @@ public:
 
 	class NoElementsException : public std::exception
 	{
-		public:
 			virtual const char* what() const throw()
 			{
 				return ("Error: there is only one (or none) numbers stored!");
@@ -46,7 +47,6 @@ public:
 	};
 	class ArrayIsFullException : public std::exception
 	{
-		public:
 			virtual const char* what() const throw()
 			{
 				return ("Error: cannot add more, array is full!");

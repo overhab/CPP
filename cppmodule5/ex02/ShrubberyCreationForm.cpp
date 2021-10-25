@@ -37,6 +37,8 @@ bool	ShrubberyCreationForm::execute( Bureaucrat const & executor ) const
 				std::cerr << "File creation failed!" << std::endl;
 				return false;	
 			}
+			std::cout << executor.getName() << " executes " << this->getName()
+				<< std::endl;
 			file << "            ,@@@@@@@,\n"
 					"    ,,,.   ,@@@@@@/@@,  .oo8888o.\n"
 					" ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o\n"

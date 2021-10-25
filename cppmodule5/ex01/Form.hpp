@@ -33,13 +33,13 @@ public:
 	};
 private:
 	const std::string		_name;
-	unsigned int			_gradeToSign;
-	unsigned int			_gradeToExec;
+	const unsigned int		_gradeToSign;
+	const unsigned int		_gradeToExec;
 	bool					_isSigned;
 public:
 	Form( void );
 	Form( const Form& copy );
-	Form( const std::string & name, unsigned int gradeToSign, unsigned int gradeToExec );
+	Form( const std::string & name, const unsigned int gradeToSign, const unsigned int gradeToExec );
 	~Form( );
 
 	std::string		getName(void) const;

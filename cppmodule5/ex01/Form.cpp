@@ -1,11 +1,12 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form( void )
+Form::Form( void ) 
+	: _name("default"), _gradeToSign(150), _gradeToExec(150), _isSigned(false)
 {
 }
 
-Form::Form( const std::string & name, unsigned int gradeToSign, unsigned int gradeToExec )
+Form::Form( const std::string & name, const unsigned int gradeToSign, const unsigned int gradeToExec )
 	: _name(name), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec), _isSigned(false)
 {
 	if (_gradeToSign < 1 || _gradeToExec < 1)
@@ -25,9 +26,7 @@ Form::~Form( void )
 
 Form& Form::operator=( const Form& ref )
 {
-	this->_gradeToSign = ref.getSignGrade();
-	this->_gradeToExec = ref.getExecGrade();
-	this->_isSigned = false;
+	(void)ref;
 	return (*this);
 }
 

@@ -10,4 +10,9 @@ int		main ( void )
 	std::cout << "Adress: " << &string << "\tPTR adress: " << stringPTR
 		<< "\tREF adress: " << &stringREF << '\n' << "stringPTR: "
 			<< *stringPTR << "\tstringREF: " << stringREF << std::endl;
+
+	string += " test";
+
+	std::cout << "stringPTR: "
+		<< *stringPTR << "\tstringREF: " << stringREF << std::endl;
 }

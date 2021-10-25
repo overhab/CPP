@@ -10,7 +10,7 @@ class Fixed
 {
 private:
 	int					_fixedPointValue;
-	static const int	_bits;
+	static const int 	_bits;
 public:
 	Fixed();
 	Fixed( const Fixed& copy );

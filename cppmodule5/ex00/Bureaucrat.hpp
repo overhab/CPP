@@ -24,16 +24,16 @@ public:
 			}
 	};
 private:
-	const std::string		_name;
-	unsigned int			_grade;
+	const std::string	_name;
+	int					_grade;
 public:
 	Bureaucrat( void );
 	Bureaucrat( const Bureaucrat& copy );
-	Bureaucrat( const std::string & name, unsigned int grade );
+	Bureaucrat( const std::string & name, int grade );
 	~Bureaucrat( );
 
 	std::string		getName(void) const;
-	unsigned int	getGrade(void) const;
+	int	getGrade(void) const;
 
 	void			incGrade(void);
 	void			deGrade(void);

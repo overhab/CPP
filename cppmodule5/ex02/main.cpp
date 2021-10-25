@@ -34,5 +34,13 @@ int		main ( void )
 	bureau2.executeForm(form_3);
 	std::cout << "-------------------------------" << std::endl;
 
+/* 	try {
+		form_3.execute(bureau2);
+	}
+	catch (std::exception &err)
+	{
+		std::cout << "Exception: " << bureau2.getName() << " cannot execute " << form_3.getName() << " - " << err.what() << std::endl;
+	}
+ */
 	return (0);
 }

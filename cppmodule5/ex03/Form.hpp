@@ -42,13 +42,13 @@ public:
 private:
 	const std::string		_name;
 	std::string				_target;
-	unsigned int			_gradeToSign;
-	unsigned int			_gradeToExec;
+	const unsigned int		_gradeToSign;
+	const unsigned int		_gradeToExec;
 	bool					_isSigned;
 public:
 	Form( void );
 	Form( const Form& copy );
-	Form( const std::string & name, const std::string & target, unsigned int gradeToSign, unsigned int gradeToExec );
+	Form( const std::string & name, const std::string & target, const unsigned int gradeToSign, const unsigned int gradeToExec );
 	virtual ~Form( );
 
 	std::string		getName(void) const;

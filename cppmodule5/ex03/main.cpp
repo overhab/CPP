@@ -16,26 +16,26 @@ int		main ( void )
 	rrf = intern.makeForm("shrubbery creation", "Eric");
 	bureau.signForm(*rrf);
 	bureau.executeForm(*rrf);
-
 	delete rrf;
+
 	std::cout << "-------------------------------" << std::endl;
 	rrf = intern.makeForm("presidental pardon", "Kyle");
 	bureau.signForm(*rrf);
 	bureau.executeForm(*rrf);
-
 	delete rrf;
+
 	std::cout << "-------------------------------" << std::endl;
 	rrf = intern.makeForm("robotomy request", "Kenny");
 	bureau.signForm(*rrf);
 	bureau.executeForm(*rrf);
-
 	delete rrf;
+
 	std::cout << "-------------------------------" << std::endl;
 	rrf = intern.makeForm("bla bla bla", "Vasya");
 	bureau.signForm(*rrf);
 	bureau.executeForm(*rrf);
-
 	delete rrf;
+
 	std::cout << "-------------------------------" << std::endl;
 	}
 	catch (std::exception & err)

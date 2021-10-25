@@ -10,12 +10,7 @@ int		main ( void )
 		Form	form2("second", 1, 151);
 		std::cout << form2 << std::endl;
 	}
-	catch (Form::GradeTooHighException& err)
-	{
-		std::cout << err.what() << std::endl;
-		return (-1);
-	}
-	catch (Form::GradeTooLowException& err)
+	catch (std::exception& err)
 	{
 		std::cout << err.what() << std::endl;
 		return (-1);
@@ -29,24 +24,26 @@ int		main ( void )
 	Form		form_3("form_3", 2, 1);
 
 	try {
-	//form_3.beSigned(bureau1);
-	bureau1.signForm(form_3);
-	std::cout << "-------------------------------" << std::endl;
-	std::cout << form_1 << std::endl;
-	form_1.beSigned(bureau1);
-	std::cout << form_1 << std::endl;
-	std::cout << "-------------------------------" << std::endl;
-	std::cout << form_2 << std::endl;
-	std::cout << form_3 << std::endl;
-	bureau2.signForm(form_2);
-	//bureau2.signForm(form_3);
-	bureau3.signForm(form_3);
-	std::cout << form_2 << std::endl;
-	std::cout << form_3 << std::endl;
-	bureau3.signForm(form_3);
-	std::cout << "-------------------------------" << std::endl;
+		//form_3.beSigned(bureau1);
+		bureau1.signForm(form_3);
+		std::cout << "-------------------------------" << std::endl;
+		std::cout << form_1 << std::endl;
+		form_1.beSigned(bureau1);
+		std::cout << form_1 << std::endl;
+		std::cout << "-------------------------------" << std::endl;
+		std::cout << form_2 << std::endl;
+		std::cout << form_3 << std::endl;
+		bureau2.signForm(form_2);
+		
+		//form_2.beSigned(bureau1);
+
+		bureau3.signForm(form_3);
+		std::cout << form_2 << std::endl;
+		std::cout << form_3 << std::endl;
+		bureau3.signForm(form_3);
+		std::cout << "-------------------------------" << std::endl;
 	}
-	catch(Form::GradeTooLowException& err)
+	catch(std::exception& err)
 	{
 		std::cout << "Cannot be signed. " << err.what() << std::endl;
 		return (-1);

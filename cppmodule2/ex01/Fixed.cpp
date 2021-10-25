@@ -22,7 +22,7 @@ Fixed::Fixed( const int num )
 }
 
 Fixed::Fixed( const float num )
-	: _fixedPointValue( static_cast<int>(roundf(num * (1 << Fixed::_bits)) ) )
+	: _fixedPointValue( static_cast<int>(roundf(num * (1 << Fixed::_bits))))
 {
 	std::cout << "[ Float constructor called ]" << std::endl;
 }

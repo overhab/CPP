@@ -3,6 +3,14 @@
 int		main ( void )
 {
 	std::srand(unsigned(std::time(NULL)));
+
+	Span 		test(20);
+
+	test.fillRandom();
+
+	std::cout << test.shortestSpan() << std::endl;
+	std::cout << test.longestSpan() << std::endl;
+	test.printArray();
 	std::cout << "------10000--------" << std::endl;
 
 	Span				tmp(10000);
@@ -20,7 +28,14 @@ int		main ( void )
 		array.addNumber(17);
 		array.addNumber(9);
 		array.addNumber(11);
-		//array.addNumber(11); // ERROR
+
+		try {
+			array.addNumber(11);
+		}
+		catch (std::exception &err) {
+			std::cout << err.what() << std::endl;
+		}
+
 
 		std::cout << array.shortestSpan() << std::endl;
 		std::cout << array.longestSpan() << std::endl;

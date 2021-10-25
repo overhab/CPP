@@ -5,21 +5,21 @@
 # include <iostream>
 # define SIZE 10
 
-template< typename type >
-void	iter( type *array, std::size_t size, void (*func)(type&) )
+template< typename T >
+void	iter( T *array, std::size_t size, void (*func)(T &) )
 {
 	for (std::size_t i = 0; i < size; i++)
 		func(array[i]);
 }
 
-template< typename type >
-void	func(type & arg)
+template< typename T >
+void	func(T & arg)
 {
 	arg++;
 }
 
-template< typename type >
-void	printArr(type & arg)
+template< typename T >
+void	printArr(T & arg)
 {
 	std::cout << arg << " ";
 }

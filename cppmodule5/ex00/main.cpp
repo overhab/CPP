@@ -1,7 +1,7 @@
 #include "Bureaucrat.hpp"
 #include <sstream>
 
-bool	setParams( std::string *name, unsigned int *grade)
+bool	setParams( std::string *name, int *grade )
 {
 	std::string	 input;
 
@@ -18,7 +18,7 @@ bool	setParams( std::string *name, unsigned int *grade)
 int		main ( void )
 {
 	std::string		name;
-	unsigned int	grade;
+	int	grade;
 
 	if (!setParams(&name, &grade)) 
 	{
@@ -27,19 +27,17 @@ int		main ( void )
 	}
 	try {
 		Bureaucrat	bureau(name, grade);
-		std::cout << bureau << std::endl;
+
 		//bureau.deGrade();
 		//bureau.incGrade();
+
+		std::cout << bureau << std::endl;
 	}
-	catch (Bureaucrat::GradeTooHighException& err)
+	catch (std::exception& err)
 	{
 		std::cout << err.what() << std::endl;
 		return (-1);
 	}
-	catch (Bureaucrat::GradeTooLowException& err)
-	{
-		std::cout << err.what() << std::endl;
-		return (-1);
-	}
+
 	return (0);
 }

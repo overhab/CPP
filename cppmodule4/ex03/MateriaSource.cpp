@@ -34,12 +34,15 @@ MateriaSource& MateriaSource::operator=( const MateriaSource& ref )
 
 void		MateriaSource::learnMateria(AMateria* mat)
 {
+	if (MateriaSource::_id == NUM_MAT)
+	{
+		delete mat;
+		return ;
+	}
 	if (mat)
 	{
 		this->_mat[MateriaSource::_id] = mat;
 		MateriaSource::_id++;
-		if (MateriaSource::_id == NUM_MAT)
-			MateriaSource::_id = 0;
 	}
 }
 
@@ -47,8 +50,9 @@ AMateria*	MateriaSource::createMateria(std::string const & type)
 {
 	for (int i = 0; i < NUM_MAT; i++)
 	{
-		if (!this->_mat[i]->getType().compare(type))
+		if (this->_mat[i] && !this->_mat[i]->getType().compare(type))
 			return (this->_mat[i]->clone());
 	}
+	std::cout << "Error: Wrong materia type!" << std::endl;
 	return NULL;
 }

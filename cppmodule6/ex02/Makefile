@@ -2,7 +2,7 @@ NAME		=	identify
 OBJS_DIR	=	./objs
 SRCS_DIR	=	.
 
-HEADERS		=	Base.hpp		
+HEADERS		=		
 
 
 SRC_FILES	=	main.cpp			

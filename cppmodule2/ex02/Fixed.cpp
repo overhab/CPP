@@ -16,7 +16,7 @@ Fixed::Fixed( const Fixed& copy )
 }
 
 Fixed::Fixed( const int num )
-	: _fixedPointValue( num * (1 << Fixed::_bits) )
+	: _fixedPointValue( (num * (1 << Fixed::_bits)) )
 {
 	std::cout << "[ Int constructor called ]" << std::endl;
 }
@@ -52,7 +52,7 @@ float	Fixed::toFloat( void ) const
 
 int		Fixed::toInt( void ) const
 {
-	return (static_cast<int>(this->_fixedPointValue / (1 << Fixed::_bits)));
+	return ((this->_fixedPointValue / (1 << Fixed::_bits)));
 }
 
 /* OPERATOR OVERLOADS */

@@ -6,7 +6,7 @@ Form::Form( void )
 {
 }
 
-Form::Form( const std::string & name, const std::string & target, unsigned int gradeToSign, unsigned int gradeToExec )
+Form::Form( const std::string & name, const std::string & target, const unsigned int gradeToSign, const unsigned int gradeToExec )
 	: _name(name), _target(target), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec), _isSigned(false)
 {
 	if (_gradeToSign < 1 || _gradeToExec < 1)
@@ -26,16 +26,13 @@ Form::~Form( void )
 
 Form& Form::operator=( const Form& ref )
 {
-	this->_gradeToSign = ref.getSignGrade();
-	this->_gradeToExec = ref.getExecGrade();
-	this->_target = ref.getTarget();
-	this->_isSigned = false;
+	(void)ref;
 	return (*this);
 }
 
 std::ostream& operator<<( std::ostream& stream, const Form& ref)
 {
-	stream << "Form: " << ref.getName() << ";\tGrade to sign: "
+	stream << "Form: " << ref.getName() << ";\t\tGrade to sign: "
 		<< ref.getSignGrade() << ";\tGrade to execute: " << ref.getExecGrade()
 			<< ";\tSigned: " << ref.isSigned();
 	return (stream);

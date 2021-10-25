@@ -30,6 +30,8 @@ bool	PresidentialPardonForm::execute( Bureaucrat const & executor ) const
 	{
 		if (executor.getGrade() <= this->getExecGrade())
 		{
+			std::cout << executor.getName() << " executes " << this->getName()
+				<< std::endl;
 			std::cout << "\"" << this->getTarget() << " has been pardoned by Zafod Beeblebrox.\""
 				<< std::endl;
 			return true;
